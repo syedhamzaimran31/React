@@ -57,9 +57,9 @@ function EmployeInputForm() {
               className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
               onChange={selectEmployePosition}
             >
-              <option>Internee</option>
+              <option>Internee </option>
               <option>Junior Developer</option>
-              <option>Senior Developer</option>
+              <option>Senior Developer </option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
@@ -83,9 +83,9 @@ function EmployeInputForm() {
               value={employeTrainer}
               onChange={selectEmployeeTrainer}
             >
-              <option value="Trainer 1">Trainer 1</option>
-              <option value="Trainer 2">Trainer 2</option>
-              <option value="Trainer 3">Trainer 3</option>
+              <option value="Trainer 1">Trainer Saad</option>
+              <option value="Trainer 2">Trainer Ehsan</option>
+              <option value="Trainer 3">Trainer Ali</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
