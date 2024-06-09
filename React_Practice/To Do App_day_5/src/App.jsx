@@ -14,16 +14,29 @@ import Task from "./Components/Task";
 function App() {
   const [newTask, setTask] = useState("");
   const [toDoList, setToDoList] = useState([]);
+  const [editTaskId, setEditTaskId] = useState(null);
 
   function addTask() {
     if (newTask) {
-      const task = {
-        id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
-        taskName: newTask,
-        isCompleted: false,
-      };
-      setToDoList([...toDoList, task]);
-      setTask(""); // Clear the input field
+      if (editTaskId) {
+        setToDoList(
+          toDoList.map((editTask) => {
+            return editTask.id == editTaskId
+              ? { ...editTask, taskName: newTask }
+              : editTask;
+          })
+        );
+        setEditTaskId(null);
+        setTask(""); // Clear the input field
+      } else {
+        const task = {
+          id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
+          taskName: newTask,
+          isCompleted: false,
+        };
+        setToDoList([...toDoList, task]);
+        setTask(""); // Clear the input field
+      }
     } else {
       alert("Please enter a valid task");
     }
@@ -55,7 +68,10 @@ function App() {
       })
     );
   };
-
+  const editTask = (id) => {
+    setTask(toDoList.find((task) => task.id == id).taskName);
+    setEditTaskId(id);
+  };
   return (
     <Container className="mt-5">
       <Form.Group className="mb-3">
@@ -67,8 +83,9 @@ function App() {
         />
       </Form.Group>
       <Button variant="primary" className="mb-3" onClick={addTask}>
-        Add Task
+        {editTaskId == null ? "Add Task" : "Update Task"}
       </Button>
+
       <ListGroup>
         {toDoList.map((task) => (
           <Task
@@ -78,6 +95,7 @@ function App() {
             isCompleted={task.isCompleted}
             deleteTask={deleteTask}
             completeTask={completeTask}
+            editTask={editTask}
           />
         ))}
       </ListGroup>

@@ -13,12 +13,19 @@ export default function Task(props) {
       {props.taskName}
       <div>
         <Button
-          style={{ marginRight: "10px" }}
           variant="primary"
           size="sm"
           onClick={() => props.completeTask(props.id, props.isCompleted)}
         >
           {props.isCompleted ? "Refresh" : "Completed"}
+        </Button>
+        <Button
+          style={{ marginInline: "10px" }}
+          variant="secondary"
+          size="sm"
+          onClick={() => props.editTask(props.id)}
+        >
+          Edit
         </Button>
         <Button
           variant="danger"
