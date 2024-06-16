@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Error_404 from "./pages/Error_404";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/profile/:userId" element={<Profile />}></Route>
           <Route path="*" element={<Error_404 />}></Route>
         </Routes>
       </Router>
