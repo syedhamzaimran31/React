@@ -18,17 +18,16 @@ function Todos() {
   if (isLoading) {
     return <h1>Loading..</h1>;
   }
-  return (
-    <>
-      {data.map((todos) => {
-        return (
-          <h1 key={todos.id}>
-            The todos id : {todos.id}
-            <br /> The todos title is : {todos.title}
-          </h1>
-        );
-      })}
-    </>
-  );
+  const dataTodos = data.map((todos) => {
+    if (todos.id === 1) {
+      return (
+        <h1 key={todos.id}>
+          The todos id : {todos.id}
+          <br /> The todos title is : {todos.title}
+        </h1>
+      );
+    }
+  });
+  return <>{dataTodos}</>;
 }
 export default Todos;
