@@ -6,37 +6,37 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import FormBootstrap from "./components/Form";
 
 function App() {
-  const schema = yup.object().shape({
-    username: yup.string().required("username is required"),
-    email: yup.string().email().required("email is required"),
-    age: yup
-      .number("age should be a number between 18 and 50")
-      .integer("age shold be integer")
-      .min(18)
-      .max(50)
-      .required("age is required"),
-    password: yup
-      .string()
-      .required()
-      .min(6, "Password must be at least 6 characters long")
-      .max(30, "Password must be at least 30 characters long")
-      .required("password is required"),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "passwords must match")
-      .required("confirm Password is required"),
-  });
+  // const schema = yup.object().shape({
+  //   username: yup.string().required("username is required"),
+  //   email: yup.string().email().required("email is required"),
+  //   age: yup
+  //     .number("age should be a number between 18 and 50")
+  //     .integer("age shold be integer")
+  //     .min(18)
+  //     .max(50)
+  //     .required("age is required"),
+  //   password: yup
+  //     .string()
+  //     .required()
+  //     .min(6, "Password must be at least 6 characters long")
+  //     .max(30, "Password must be at least 30 characters long")
+  //     .required("password is required"),
+  //   confirmPassword: yup
+  //     .string()
+  //     .oneOf([yup.ref("password"), null], "passwords must match")
+  //     .required("confirm Password is required"),
+  // });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   resolver: yupResolver(schema),
+  // });
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <>
